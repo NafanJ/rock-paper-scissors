@@ -51,11 +51,27 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game(){
-    for (let i = 0; playerWins < 5||computerWins < 5; i++){
-        console.log(`Round ${i + 1}`)
+function checkWinner() {
+    let endGame = false
+    if (playerWins == 5) {
+        endGame = true
+        console.log("You win! You are the ultimate winner!")
+    } else if (computerWins == 5) {
+        endGame = true
+        console.log("You lose! The computer is the ultimate winner!")
+    }
+    return endGame;
+}
+
+function game() {
+    let round = 0
+    while (!checkWinner()) {
+        round++;
+        console.log("Round: " + round)
         playRound(getPlayerChoice(), getComputerChoice());
     }
 }
 
 game();
+
+
