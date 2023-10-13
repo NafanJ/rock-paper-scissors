@@ -6,8 +6,12 @@ function getComputerChoice(){
 }
 
 function getPlayerChoice(){
-    let playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
-    return playerChoice;
+    let playerChoice = prompt("Rock, Paper or Scissors?");
+    if (!playerChoice) {
+        alert("You didn't choose anything! Try again!")
+        getPlayerChoice();
+    } 
+    return playerChoice.toLowerCase();
 }
 
 function playRound(playerSelection, computerSelection){
