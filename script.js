@@ -2,30 +2,30 @@ const possibleChoices = ["rock", "paper", "scissors"]
 let playerWins = 0;
 let computerWins = 0;
 
-function getComputerChoice(){
+function getComputerChoice() {
     const randomChoice = possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
     return randomChoice;
 }
 
-function getPlayerChoice(){
+function getPlayerChoice() {
     let playerChoice = prompt("Rock, Paper or Scissors?");
     if (!playerChoice) {
         alert("You didn't choose anything! Try again!")
         getPlayerChoice();
-    } 
+    }
     return playerChoice.toLowerCase();
 }
 
-function playRound(playerSelection, computerSelection){
-    if (!possibleChoices.includes(playerSelection)){
+function playRound(playerSelection, computerSelection) {
+    if (!possibleChoices.includes(playerSelection)) {
         alert("That isn't one of the options! Try again!")
         playRound(getPlayerChoice(), getComputerChoice());
     }
 
-    if (playerSelection === computerSelection){
+    if (playerSelection === computerSelection) {
         console.log("DRAW!")
     } else if (playerSelection === "rock") {
-        if (computerSelection === "scissors"){
+        if (computerSelection === "scissors") {
             console.log("You win! Rock beats Scissors")
             playerWins++;
         } else {
@@ -33,7 +33,7 @@ function playRound(playerSelection, computerSelection){
             computerWins++;
         }
     } else if (playerSelection === "paper") {
-        if (computerSelection === "rock"){
+        if (computerSelection === "rock") {
             console.log("You win! Paper beats rock")
             playerWins++;
         } else {
@@ -41,7 +41,7 @@ function playRound(playerSelection, computerSelection){
             computerWins++;
         }
     } else if (playerSelection === "scissors") {
-        if (computerSelection === "paper"){
+        if (computerSelection === "paper") {
             console.log("You win! Scissors beats paper")
             playerWins++;
         } else {
