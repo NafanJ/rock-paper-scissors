@@ -63,6 +63,10 @@ function checkWinner() {
     return endGame;
 }
 
+function displayResults(){
+    alert(`Your score: ${playerWins} Computer Score: ${computerWins}`)
+}
+
 function game() {
     let round = 0
     while (!checkWinner()) {
@@ -70,6 +74,7 @@ function game() {
         console.log("Round: " + round)
         playRound(getPlayerChoice(), getComputerChoice());
     }
+    displayResults();
 }
 
 game();
