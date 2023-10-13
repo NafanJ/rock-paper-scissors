@@ -3,8 +3,7 @@ let playerWins = 0;
 let computerWins = 0;
 
 function getComputerChoice(){
-    let randomChoice = possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
-    randomChoice = 'rock';
+    const randomChoice = possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
     return randomChoice;
 }
 
@@ -53,7 +52,7 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game(){
-    for (let i = 0; (playerWins < 5)||(computerWins < 5); i++){
+    for (let i = 0; playerWins < 5||computerWins < 5; i++){
         console.log(`Round ${i + 1}`)
         playRound(getPlayerChoice(), getComputerChoice());
     }
