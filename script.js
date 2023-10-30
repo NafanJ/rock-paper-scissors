@@ -7,20 +7,18 @@ function getComputerChoice() {
     return randomChoice;
 }
 
-function getPlayerChoice() {
-    let playerChoice = prompt("Rock, Paper or Scissors?");
-    if (!playerChoice) {
-        alert("You didn't choose anything! Try again!")
-        getPlayerChoice();
-    }
-    return playerChoice.toLowerCase();
+// Get Playing Card ID and set to playerChoice
+const onClick = (event) => {
+    const playerChoice = event.srcElement.id
+    playRound(playerChoice, getComputerChoice())
 }
 
-function playRound(playerSelection, computerSelection) {
-    if (!possibleChoices.includes(playerSelection)) {
-        alert("That isn't one of the options! Try again!")
-        playRound(getPlayerChoice(), getComputerChoice());
+const playingCards = document.getElementsByClassName('playingCard')
+    for (let i = 0; i < playingCards.length; i++) {
+        playingCards[i].onclick = onClick;
     }
+
+function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
         console.log("DRAW!")
@@ -49,34 +47,15 @@ function playRound(playerSelection, computerSelection) {
             computerWins++;
         }
     }
-}
-
-function checkWinner() {
-    let endGame = false
-    if (playerWins == 5) {
-        endGame = true
-        console.log("You win! You are the ultimate winner!")
-    } else if (computerWins == 5) {
-        endGame = true
-        console.log("You lose! The computer is the ultimate winner!")
-    }
-    return endGame;
-}
-
-function displayResults(){
-    alert(`Your score: ${playerWins} Computer Score: ${computerWins}`)
-}
-
-function game() {
-    let round = 0
-    while (!checkWinner()) {
-        round++;
-        console.log("Round: " + round)
-        playRound(getPlayerChoice(), getComputerChoice());
-    }
     displayResults();
 }
 
-game();
+function displayResults(){
+    const resultsNode = document.querySelector(".results")
+    results = document.createElement('p')
+    results.innerText = `Player - ${playerWins}:${computerWins} - Computer`
+    resultsNode.appendChild(results)
+
+}
 
 

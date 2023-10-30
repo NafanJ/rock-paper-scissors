@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <script src="./script.js" async></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-    <h1>Rock Paper Scissors Console Version</h1>
+    <div class="header">
+        <h1>Rock Paper Scissors</h1>
+    </div>
+    
+    <div class="button-container">
+        <img class="playingCard" onclick=playRound(getPlayerChoice(),getComputerChoice())
+        src="./images/rock.png" id="rock">
+        <img class="playingCard" playRound(getPlayerChoice(), getComputerChoice())
+        src="./images/paper.png" id="paper">
+        <img class="playingCard" playRound(getPlayerChoice(), getComputerChoice())
+        src="./images/scissors.png" id="scissors">
+    </div>
+
+    <div class="results">
+        <h3>Score</h3>
+    </div>
 </body>
 </html>

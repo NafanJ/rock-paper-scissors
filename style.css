@@ -1,0 +1,25 @@
+/* Header Styling */
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+/* Playing Card Styling*/
+.button-container{
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+
+.playingCard{
+   max-width: 250px; 
+   max-height: auto;
+}
+
+/* Results Styling */
+.results{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
